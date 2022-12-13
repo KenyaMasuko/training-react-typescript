@@ -352,7 +352,7 @@ Vite で環境構築したプロジェクトをもとに説明していきます
 JSX の書き方
 
 <div class="flex justify-center">
-<img src="/images/screenshot%20(1).png" class="w-7/10">
+<img src="/images/screenshot1.png" class="w-7/10">
 </div>
 
 ---
@@ -590,8 +590,8 @@ export const Greet = ({ name, times }) => {
 JSX の書き方
 
 <div class="grid grid-cols-2 gap-2">
-<img src="/images/screenshot%20(3).png" />
-<img src="/images/screenshot%20(2).png" />
+<img src="/images/screenshot3.png" />
+<img src="/images/screenshot2.png" />
 </div>
 
 レンダリング結果
@@ -612,7 +612,7 @@ JSX の書き方
 
 <div class="grid grid-cols-2 gap-5">
 
-<img src="/images/screenshot%20(4).png" />
+<img src="/images/screenshot4.png" />
 
 <div>
 
