@@ -10,5 +10,8 @@
     "@slidev/cli": "^0.37.1",
     "@slidev/theme-default": "*",
     "@slidev/theme-seriph": "*"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
   }
 }
