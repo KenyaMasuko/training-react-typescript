@@ -119,7 +119,7 @@ Node.js で環境構築
 1. npm scripts を package.json に追加する
    ```json
    "scripts": {
-   "dev": "nodemon --watch \"src/**/*.ts\" --exec ts-node --files ./src/index.ts"
+   "dev": "nodemon --watch \"src/**/*.ts\" --exec ts-node-esm --files ./src/index.ts"
    },
    ```
 1. package.json に`"type": "module"`を設定する
@@ -248,4 +248,4 @@ tsconfig.json の設定
 
 5. `exactOptionalPropertyTypes`
 
-   `name?: string`と`nama: string | undefined`を区別できるオプション。プロパティを省略したのか書き忘れたのかの違いを明確にするために必要。
+   `name?: string`と`name: string | undefined`を区別できるオプション。プロパティを省略したのか書き忘れたのかの違いを明確にするために必要。
