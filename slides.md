@@ -81,7 +81,7 @@ $ yarn add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 
 ---
 
-# 必要なパッケージングをインストールする
+# 必要なパッケージをインストールする
 
 Node.js で環境構築
 
