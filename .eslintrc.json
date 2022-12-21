@@ -92,7 +92,7 @@
 						"position": "after"
 					}
 				],
-				"pathGroupsExcludeImportTypes": ["builtin"],
+				"pathGroupsExcludedImportTypes": ["builtin"],
 				"alphabetize": {
 					"order": "asc"
 				}
