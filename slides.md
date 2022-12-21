@@ -862,21 +862,133 @@ React 概論
 
 # 6.1 コンポーネントの基本
 
+### React のアーキテクチャ = コンポーネントベース・アーキテクチャ
+
+これから React 書く上で避けては通れない、「コンポーネント」の考え方、扱い方を学んでいきます。<br>
+コンポーネントの [^メンタルモデル]メンタルモデルを学び、どのような実装が React の思想（React が理想としてるもの）なのかを、実際のアプリケーションのコードを見ながら学びます。
+
+[^メンタルモデル]: ここでいうメンタルモデルとは、「これをするにはこうする。こうしたらこうなる。」というように動作や結果をイメージできるような心のありようです。
+
 ---
 
-# コンポーネントのメンタルモデル
+# 6.1 コンポーネントのメンタルモデル
 
 コンポーネントの基本
 
+1. コンポーネントは関数のようなもの
+
+   props という引数をとり、React Element を返す関数<br>
+   この関数によって返された結果が<span class="text-red-500">レンダリング</span>される
+
+1. コンポーネントは状態を持つ
+
+   React Element ごとに状態を保持するための空間が用意されている<br>
+   この状態のことを<span class="text-red-500">state</span>と呼ぶ<br>
+
+   state か props が変われば返す React Element も変わる<br>
+
+   (仮想 DOM を利用して差分検出をすることで再レンダリングをしている=>Reconciliation(リコンシリエーション))
+
 ---
 
-# コンポーネントに props を受け渡す
+# 6.2 コンポーネントに props を受け渡す
 
 コンポーネントの基本
 
+コンポーネントを理解する上で props と state の 2 つが大事だが、より重要なのは props
+
+React は関数型プログラミングで UI を宣言的に記述するという思想があります。そのため、副作用の原因となる state をコンポーネントにできる限り持たせたくありません。
+
+つまり React が理想とするのは、いわゆる[^純粋関数]<span class="text-red-500">純粋関数</span>なのです。
+
+では実際にアプリケーションを例にとり props とは何なのかをみていきましょう。
+
+[^純粋関数]: 純粋関数とは引数が同じなら何回実行しても返り値が同じになる関数のこと（近い意味だと冪等性や参照透過性がある）
+
 ---
 
-# コンポーネントに state を持たせる
+# 6.3 コンポーネントに state を持たせる ①
+
+コンポーネントの基本
+
+#### 基本のインターフェース
+
+```ts
+const [count, setCount] = useState(0);
+
+setCount(100);
+```
+
+1. `useState`という API を通して state(状態)と、その更新関数を返り値として得ることができる
+1. 配列の分割代入なので、state 変数とそのセット関数は自由に命名できるが、state 変数を`foo`にした場合セット関数は`setFoo`にするのが一般的
+
+---
+
+# 6.3 コンポーネントに state を持たせる ②
+
+コンポーネントの基本
+
+### カウンターの仕組みを理解する
+
+🤔 更新用関数に渡すのは、コールバック関数？ただの式？
+
+<div class="grid grid-cols-2 gap-5">
+<div>
+
+```ts
+const [count, setCount] = useState(0);
+
+const add = () => {
+	setCount(count + 1);
+	setCount(count + 1);
+	setCount(count + 1);
+};
+```
+
+</div>
+<div>
+
+```ts
+const [count, setCount] = useState(0);
+
+const add = () => {
+	setCount((prevState) => prevState + 1);
+	setCount((prevState) => prevState + 1);
+	setCount((prevState) => prevState + 1);
+};
+```
+
+</div>
+</div>
+
+上記の違いを実際にコードで実行して確かめてみよう！
+
+---
+
+# 6.3 コンポーネントに state を持たせる ③
+
+コンポーネントの基本
+
+### 状態の更新は即座にはされない
+
+- 状態の更新は全てのコードが実行後に行われる
+- 即座に更新後の状態を利用するには<span class='text-red-500'>コールバック関数</span>を使用する(即座に更新しない場合でも基本的にコールバック関数を渡しておけば大丈夫です)
+
+  ```ts
+  const [state, setState] = useState(0);
+
+  const add = () => {
+  	setCount((prevState) => prevState + 1);
+  };
+  ```
+
+<br>
+
+[ドキュメント]('https://beta.reactjs.org/learn/queueing-a-series-of-state-updates')で確認する
+
+---
+
+# 6.4 コンポーネントと副作用
 
 コンポーネントの基本
 
@@ -885,6 +997,10 @@ React 概論
 # Learn More
 
 [MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript) · [JavaScript Primer](https://jsprimer.net/)
+
+```
+
+```
 
 ```
 
