@@ -21,7 +21,7 @@
 	},
 	"plugins": ["@typescript-eslint", "jsx-a11y", "react", "react-hooks"],
 	"rules": {
-		"padding-line-between-statement": [
+		"padding-line-between-statements": [
 			"error",
 			{
 				"blankLine": "always",
@@ -38,7 +38,7 @@
 				"checkVoidReturn": false
 			}
 		],
-		"@typescript-eslint/no-unused-var": [
+		"@typescript-eslint/no-unused-vars": [
 			"error",
 			{
 				"argsIgnorePattern": "^_",
