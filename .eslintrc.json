@@ -2,7 +2,7 @@
   "env": {
     "browser": true,
     "es2022": true,
-    "jest": true
+    "jest/globals": true
   },
   "extends": [
     "eslint:recommended",
@@ -13,7 +13,7 @@
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
-    "plugin:jest/recommend",
+    "plugin:jest/recommended",
     "prettier"
   ],
   "parserOptions": {
@@ -118,7 +118,7 @@
       "env": {
         "jest/globals": true
       },
-      "extends": ["plugin:jest/recommend", "plugin:jest/style"],
+      "extends": ["plugin:jest/recommended", "plugin:jest/style"],
       "plugins": ["jest"]
     }
   ],
