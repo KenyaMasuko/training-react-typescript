@@ -996,7 +996,7 @@ const add = () => {
 
 # Learn More
 
-[MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript) · [JavaScript Primer](https://jsprimer.net/)
+[MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript) · [Reactのドキュメント](https://beta.reactjs.org/)
 
 ```
 
