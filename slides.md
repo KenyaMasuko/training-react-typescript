@@ -98,7 +98,7 @@ ex:
 JavaScript を構成する要素
 
 <div>
-  JavaScriptは式（expression）と文（sentence）から構成されます。
+  JavaScriptは式（expression）と文（statement）から構成されます。
 
 - 式とは
   簡単に言うと、「値を生成し、変数に代入できるもの」<br>
