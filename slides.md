@@ -672,7 +672,7 @@ console.log(obj2); // { greeting: 'bye' } 元のobj1は変わってない
 
    ```js
    const greet = '' || undefined || null || 0 || NaN || 'Hello';
-   const name = '' && 100 && [] && () && 'Taro';
+   const name = 'abc' && 100 && [] && () && 'Taro';
    true && console.log(greet); //  'Hello'
    false && console.log(greet); // no output
    true || console.log(name) // no output
