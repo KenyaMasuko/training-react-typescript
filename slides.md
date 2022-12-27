@@ -226,7 +226,7 @@ const foo = (arg: argType): returnType => {...}
 1. 引数が 1 つの場合
 
    ```js
-   arg: argType => {...} // () parenthesisを省略可
+   arg => {...} // () parenthesisを省略可
    ```
 
 1. 引数が複数の場合
@@ -712,11 +712,9 @@ setTimeout(() => console.log(3), 1000);
 
 JavaScript の大きな壁
 
-正解： `1, 4, 2, 3`
+正解： `1, 4, 3, 2`
 
-答えが合ってた人はかなり JavaScript の知識が深い方だと思います。
-
-非同期処理を扱うと時間が全然足りなくなると思うので、非同期処理の詳細も別講座に譲ります。
+非同期処理についてはReactでAPIを処理する時に一緒に学びます。
 
 ---
 
