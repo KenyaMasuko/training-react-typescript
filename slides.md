@@ -38,7 +38,7 @@ css: unocss
 
 <br>
 <div>
-  Reactを使用するとSPA（シングルページアプリケーション）と言われる高速なサイト・アプリケーションが実現可能<br>
+  Reactを使用するとSPA（シングルページアプリケーション）と言われる高速なアプリケーションが実現可能<br>
 
 React と同じように SPA を構築できるフレームワークたち<br>
 
@@ -75,7 +75,7 @@ ex:
 
 ---
 
-# ES2015~の JavaScript
+# ES2015~のJavaScript
 
 今後扱うテーマの目次
 
@@ -195,13 +195,13 @@ console.log(greeting + target); // セミコロンついてる
 <p>普通の関数宣言</p>
 
 ```js
-function foo() {...}
+function foo(arg: argType): returnType {...}
 ```
 
 <p>アロー関数</p>
 
 ```js
-const foo = () => {...}
+const foo = (arg: argType): returnType => {...}
 ```
 
 <p>アロー関数と普通の関数の違い</p>
@@ -226,19 +226,19 @@ const foo = () => {...}
 1. 引数が 1 つの場合
 
    ```js
-   arg => {...} // () parenthesisを省略可
+   arg: argType => {...} // () parenthesisを省略可
    ```
 
 1. 引数が複数の場合
 
    ```js
-   (arg1, arg2, arg3) => {...}
+   (arg1: arg1Type, arg2: arg2Type, arg3: argType3): returnType => {...}
    ```
 
 1. 関数の本文（実行文）が 1 行の場合
 
    ```js
-   (arg1, arg2) => ... // return文を省略できて関数の本文がそのまま返り値になる
+   (arg1: arg1Type, arg2: arg2Type): returnType => ... // return文を省略できて関数の本文がそのまま返り値になる
    ```
 
 </div>
@@ -250,7 +250,7 @@ const foo = () => {...}
 5. 関数の本文（実行文）が複数行の場合
 
    ```js
-   (arg1, arg2) => {
+   (arg1: arg1Type, arg2: arg2Type): returnType => {
      ...
      return 戻り値
    }
@@ -259,7 +259,7 @@ const foo = () => {...}
 1. 関数の本文（実行文）が 1 行かつ戻り値がオブジェクトの場合
 
    ```js
-   (arg1, arg2) => ({...}) // () parenthesisで囲います
+   (arg1: arg1Type, arg2: arg2Type): returnType => ({...}) // () parenthesisで囲います
    ```
 
 ---
@@ -289,14 +289,14 @@ const foo = () => {...}
 <br>
 従来:
 ```js
-const name = User;
+const name = 'user1';
 console.log('こんにちは,' + name + 'さん')
 ```
 <br>
 テンプレートリテラル:
 ```js
-const name = User;
-console.log(`こんにちは、${name}さん`); // こんにちは、Userさん
+const name = 'user1';
+console.log(`こんにちは、${name}さん`); // こんにちは、user1さん
 ```
 
 ---
@@ -455,8 +455,8 @@ console.log(obj2); // { foo: 123, bar: 456, baz: 789 }
 <div>
 問題①：
 ```js
-let num1 = 1;
-let num2 = num1;
+const num1 = 1;
+const num2 = num1;
 num2 = 10
 console.log(num1);
 ```
@@ -490,8 +490,8 @@ console.log(obj1);
 まずデータ型の話<br>
 
 JavaScript においてはデータ型は大きく 2 つに分けられる<br>
-① プリミティブ型　(`Number`, `String`, `Boolean`, `Symbol`, `BigInt`, `Null`, `undefined`)<br>
-② オブジェクト型　(`{}`, `[]`, `function(){}`など、プリミティブ型以外)<br>
+① プリミティブ(値)型　(`Number`, `String`, `Boolean`, `Symbol`, `BigInt`, `Null`, `undefined`)<br>
+② オブジェクト(参照)型　(`{}`, `[]`, `function(){}`など、プリミティブ型以外)<br>
 
 ### コピー時の挙動
 
@@ -508,8 +508,8 @@ JavaScript においてはデータ型は大きく 2 つに分けられる<br>
 <div>
 プリミティブ型の場合:<br>
 ```js
-let num1 = 1;
-let num2 = num1;
+const num1 = 1;
+const num2 = num1;
 ```
 ```mermaid
 graph LR
@@ -649,7 +649,7 @@ console.log(obj2); // { greeting: 'bye' } 元のobj1は変わってない
 
    ```js
    const arr = [1, 3, 5, 7];
-   const doubleArr = arr.map((num) => num * 2); // arrの配列を2倍する処理
+   const doubleArr = arr.map((num: number) => num * 2); // arrの配列を2倍する処理
    console.log(doubleArr); // [2, 6, 10, 14]
    ```
 
@@ -874,7 +874,7 @@ export/import の種類
 
 # 11.4 ES Modules
 
-default export と named export の違い ①
+default export と named export の違い
 
 1. 呼び出す側のインターフェース
 
@@ -912,7 +912,7 @@ export default 24;
 
 default export と named export の違い
 
-2. 1 ファイルから export できる数 ②
+2. 1 ファイルから export できる数
 
 named export は 1 つのファイルから複数の変数や関数をエクスポートできるが、default export は 1 つのファイルにつき、1 つの変数や関数しかエクスポートできない。
 
@@ -952,7 +952,7 @@ named export の場合、export した時点で変数や関数の名前が明示
 しかし、default export の場合は、変数や関数を定義した時点で、それらに名前はついていません（暗黙的に default という変数名で export している、と説明した方が正確かもしれません）。<br>
 export した変数名に固有の名前がついていないのですから、エディタはどの変数を import すればいいのかを判断できませんね。<br>
 
-こうした理由から default export はエディタのサポートが弱くなるので基本的に named export を使いましょう。
+こうした理由から default export はエディタのサポートが弱くなるので基本的に named export を使いましょう。(ただし、default export しか使用できない場面もあります)
 
 ---
 
@@ -994,7 +994,7 @@ const hoge = (num1, num2) => num1 + num2;
 3. 次のコードを条件（三項）演算子で書き換えてみましょう。
 
 ```js
-if (hoge) {
+if (true) {
 	const foo = "bar";
 } else {
 	const foo = "baz";
@@ -1007,7 +1007,7 @@ if (hoge) {
 <summary>回答例</summary>
 
 ```js
-const foo = hoge ? "bar" : "baz";
+const foo = true ? "bar" : "baz";
 ```
 
 </details>
@@ -1076,7 +1076,7 @@ const users = [
 <details>
 <summary>回答例</summary>
 
-```js
+```ts
 const newUsers = users.map(({ firstName, lastName }) => ({
 	fullName: `${firstName} ${lastName}`,
 }));
