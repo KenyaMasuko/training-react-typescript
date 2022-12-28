@@ -992,8 +992,63 @@ const add = () => {
 
 コンポーネントの基本
 
+## 副作用(side-effect)とは
+- ネットワークを介したデータの取得（APIとの連携）
+- リアルDOMを直接的な変更
+- ログの記録など
+
+👉 コンポーネントを純粋に保つために、副作用は可能な限り排除する
+
+
+
 ---
 
+# 6.5 副作用があるとどうなるのか
+コンポーネントの基本
+
+[副作用がコンポーネントにある例]('https://beta.reactjs.org/learn/keeping-components-pure#side-effects-unintended-consequences')
+「コンポーネントは関数のようなもの」
+1. 純粋関数だった場合（<span class='text-blue-500'>副作用なし</span>）
+
+    y = f(x) は決まったinputに対して<span class='text-blue-500'>決まった</span>outputをする
+2. 純粋関数でない場合（<span class='text-red-500'>副作用あり</span>）
+
+    y = f(x) は決まったinputに対してoutputが<span class='text-red-500'>一定でない</span>
+
+
+---
+
+# 6.6 副作用の処理の仕方
+コンポーネントの基本
+
+## 副作用は副作用としてちゃんと処理する
+Reactには`useEffect`という副作用を扱うためのAPIが用意されている
+
+```jsx
+// useEffectの中で外部から取得してきたデータをセットしている例
+
+const SampleComponent: FC = () => {
+  const [data, setData] = useState(null);
+  ...
+  useEffect(() => {
+    setDate(...);
+
+    return () => clearSomething();
+  }, [someDeps])
+}
+```
+---
+
+# 6.7 useEffectの書き方
+コンポーネントの基本
+
+1. useEffectは第1引数として、引数を持たないコールバック関数をとる。この関数の中の処理が任意のタイミングで実行される。
+2. 上記のコールバック関数の最後には<span class='text-red-500'>「クリーンアップ関数(Cleanup Function)」</span>と呼ばれる。この関数内の処理はコンポーネントがアンマウントされる時に実行される（アンマウント時に実行したい処理がないときは書かなくて良い）。
+3. someDepsの部分は<span class='text-red-500'>依存配列</span>が入る。この配列の中に格納された変数に変更があった時のみuseEffect全体が再度実行される。依存配列を渡さなかった場合はレンダリングごとに第1引数に渡された処理が実行される。
+
+### 実際にカウントダウンタイマーを作ってみる
+
+---
 # Learn More
 
 [MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript) · [Reactのドキュメント](https://beta.reactjs.org/)
