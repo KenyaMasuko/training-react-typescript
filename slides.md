@@ -646,7 +646,7 @@ JSX の書き方
 
 ---
 
-# 5.1 React 概論
+# 6.1 React 概論
 
 ### そもそも FW（フレームワーク）とは
 
@@ -665,7 +665,7 @@ React はライブラリ
 
 ---
 
-# 5.2 React のコンセプト
+# 6.2 React のコンセプト
 
 React 概論
 
@@ -694,7 +694,7 @@ React 概論
 
 ---
 
-# 5.3 React を読み解く 6 つのキーワード
+# 6.3 React を読み解く 6 つのキーワード
 
 React 概論
 
@@ -709,7 +709,7 @@ React 概論
 
 ---
 
-# 5.4 Declarative
+# 6.4 Declarative
 
 React 概論
 
@@ -721,7 +721,7 @@ React では ReactElement を JSX を用いて宣言的（どんなデータを�
 
 <div class="mt-5">
 
-# 5.5 Component-Based と Just The UI
+# 6.5 Component-Based と Just The UI
 
 React 概論
 
@@ -735,7 +735,7 @@ React 概論
 
 ---
 
-# 5.5 Component-Based 続き
+# 6.5 Component-Based 続き
 
 React 概論
 
@@ -771,7 +771,7 @@ Model -->|4.データを返却| Controller
 
 ---
 
-# 5.5 Just The UI
+# 6.6 Just The UI
 
 React 概論
 
@@ -798,7 +798,7 @@ React 概論
 
 ---
 
-# 5.6 Virtual DOM
+# 6.7 Virtual DOM
 
 React 概論
 
@@ -813,7 +813,7 @@ Virtual DOM（以降、VDOM と表記）とは
 
 ---
 
-# 5.6 VDOM をブラウザで確認する
+# 6.8 VDOM をブラウザで確認する
 
 React 概論
 
@@ -824,7 +824,7 @@ React 概論
 
 ---
 
-# 5.7 One-Way Dataflow
+# 6.9 One-Way Dataflow
 
 React 概論
 
@@ -848,7 +848,7 @@ React 概論
 
 ---
 
-# 5.8 Learn Once, Write Anywhere
+# 6.10 Learn Once, Write Anywhere
 
 React 概論
 
@@ -860,7 +860,7 @@ React 概論
 
 ---
 
-# 6.1 コンポーネントの基本
+# 7.1 コンポーネントの基本
 
 ### React のアーキテクチャ = コンポーネントベース・アーキテクチャ
 
@@ -871,7 +871,7 @@ React 概論
 
 ---
 
-# 6.1 コンポーネントのメンタルモデル
+# 7.2 コンポーネントのメンタルモデル
 
 コンポーネントの基本
 
@@ -891,7 +891,7 @@ React 概論
 
 ---
 
-# 6.2 コンポーネントに props を受け渡す
+# 7.3 コンポーネントに props を受け渡す
 
 コンポーネントの基本
 
@@ -907,7 +907,7 @@ React は関数型プログラミングで UI を宣言的に記述するとい�
 
 ---
 
-# 6.3 コンポーネントに state を持たせる ①
+# 7.4 コンポーネントに state を持たせる
 
 コンポーネントの基本
 
@@ -924,7 +924,7 @@ setCount(100);
 
 ---
 
-# 6.3 コンポーネントに state を持たせる ②
+# 7.5 カウンターの仕組みを通してstateを理解する
 
 コンポーネントの基本
 
@@ -965,7 +965,7 @@ const add = () => {
 
 ---
 
-# 6.3 コンポーネントに state を持たせる ③
+# 7.6 stateの注意点
 
 コンポーネントの基本
 
@@ -988,7 +988,7 @@ const add = () => {
 
 ---
 
-# 6.4 コンポーネントと副作用
+# 7.7 コンポーネントと副作用
 
 コンポーネントの基本
 
@@ -1003,7 +1003,7 @@ const add = () => {
 
 ---
 
-# 6.5 副作用があるとどうなるのか
+# 7.8 副作用があるとどうなるのか
 コンポーネントの基本
 
 [副作用がコンポーネントにある例]('https://beta.reactjs.org/learn/keeping-components-pure#side-effects-unintended-consequences')
@@ -1018,7 +1018,7 @@ const add = () => {
 
 ---
 
-# 6.6 副作用の処理の仕方
+# 7.9 副作用の処理の仕方
 コンポーネントの基本
 
 ## 副作用は副作用としてちゃんと処理する
@@ -1039,24 +1039,33 @@ const SampleComponent: FC = () => {
 ```
 ---
 
-# 6.7 useEffectの書き方
+# 7.10 useEffectの書き方
 コンポーネントの基本
 
 1. useEffectは第1引数として、引数を持たないコールバック関数をとる。この関数の中の処理が任意のタイミングで実行される。
 2. 上記のコールバック関数の最後には<span class='text-red-500'>「クリーンアップ関数(Cleanup Function)」</span>と呼ばれる。この関数内の処理はコンポーネントがアンマウントされる時に実行される（アンマウント時に実行したい処理がないときは書かなくて良い）。
 3. someDepsの部分は<span class='text-red-500'>依存配列</span>が入る。この配列の中に格納された変数に変更があった時のみuseEffect全体が再度実行される。依存配列を渡さなかった場合はレンダリングごとに第1引数に渡された処理が実行される。
 
-### 実際にカウントダウンタイマーを作ってみる
+### カウントダウンタイマーの例で見てみる
 
 ---
+
+# 7.11 コンポーネントまとめ
+コンポーネントの基本
+
+1. コンポーネントとは関数のようなもの
+1. コンポーネントは状態を持つ
+1. コンポーネントの2大関心事はstateとprops
+1. stateの更新は即時ではない
+1. コンポーネントは純粋に保ちできるだけ副作用は持たせない
+
+---
+
 # Learn More
 
-[MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript) · [Reactのドキュメント](https://beta.reactjs.org/)
+- [Reactのドキュメント](https://beta.reactjs.org/)
+- [Mantineのドキュメント](https://mantine.dev/)
+- [Tailwind CSSのドキュメント](https://tailwindcss.com/)
+- [Viteのドキュメント](https://ja.vitejs.dev/)
+- [useEffect完全ガイド](https://overreacted.io/ja/a-complete-guide-to-useeffect/)
 
-```
-
-```
-
-```
-
-```
