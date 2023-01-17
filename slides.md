@@ -37,6 +37,7 @@ css: unocss
 1. JSX とは
 1. なぜ React は JSX を使用するのか
 1. JSX を書いてみよう
+1. リンターとフォーマッタ
 1. React 概論
 1. コンポーネントの基本
 
@@ -924,7 +925,7 @@ setCount(100);
 
 ---
 
-# 7.5 カウンターの仕組みを通してstateを理解する
+# 7.5 カウンターの仕組みを通して state を理解する
 
 コンポーネントの基本
 
@@ -965,7 +966,7 @@ const add = () => {
 
 ---
 
-# 7.6 stateの注意点
+# 7.6 state の注意点
 
 コンポーネントの基本
 
@@ -993,36 +994,39 @@ const add = () => {
 コンポーネントの基本
 
 ## 副作用(side-effect)とは
-- ネットワークを介したデータの取得（APIとの連携）
-- リアルDOMを直接的な変更
+
+- ネットワークを介したデータの取得（API との連携）
+- リアル DOM を直接的な変更
 - ログの記録など
 
 👉 コンポーネントを純粋に保つために、副作用は可能な限り排除する
 
-
-
 ---
 
 # 7.8 副作用があるとどうなるのか
+
 コンポーネントの基本
 
 [副作用がコンポーネントにある例]('https://beta.reactjs.org/learn/keeping-components-pure#side-effects-unintended-consequences')
 「コンポーネントは関数のようなもの」
+
 1. 純粋関数だった場合（<span class='text-blue-500'>副作用なし</span>）
 
-    y = f(x) は決まったinputに対して<span class='text-blue-500'>決まった</span>outputをする
+   y = f(x) は決まった input に対して<span class='text-blue-500'>決まった</span>output をする
+
 2. 純粋関数でない場合（<span class='text-red-500'>副作用あり</span>）
 
-    y = f(x) は決まったinputに対してoutputが<span class='text-red-500'>一定でない</span>
-
+   y = f(x) は決まった input に対して output が<span class='text-red-500'>一定でない</span>
 
 ---
 
 # 7.9 副作用の処理の仕方
+
 コンポーネントの基本
 
 ## 副作用は副作用としてちゃんと処理する
-Reactには`useEffect`という副作用を扱うためのAPIが用意されている
+
+React には`useEffect`という副作用を扱うための API が用意されている
 
 ```jsx
 // useEffectの中で外部から取得してきたデータをセットしている例
@@ -1037,35 +1041,37 @@ const SampleComponent: FC = () => {
   }, [someDeps])
 }
 ```
+
 ---
 
-# 7.10 useEffectの書き方
+# 7.10 useEffect の書き方
+
 コンポーネントの基本
 
-1. useEffectは第1引数として、引数を持たないコールバック関数をとる。この関数の中の処理が任意のタイミングで実行される。
+1. useEffect は第 1 引数として、引数を持たないコールバック関数をとる。この関数の中の処理が任意のタイミングで実行される。
 2. 上記のコールバック関数の最後には<span class='text-red-500'>「クリーンアップ関数(Cleanup Function)」</span>と呼ばれる。この関数内の処理はコンポーネントがアンマウントされる時に実行される（アンマウント時に実行したい処理がないときは書かなくて良い）。
-3. someDepsの部分は<span class='text-red-500'>依存配列</span>が入る。この配列の中に格納された変数に変更があった時のみuseEffect全体が再度実行される。依存配列を渡さなかった場合はレンダリングごとに第1引数に渡された処理が実行される。
+3. someDeps の部分は<span class='text-red-500'>依存配列</span>が入る。この配列の中に格納された変数に変更があった時のみ useEffect 全体が再度実行される。依存配列を渡さなかった場合はレンダリングごとに第 1 引数に渡された処理が実行される。
 
 ### カウントダウンタイマーの例で見てみる
 
 ---
 
 # 7.11 コンポーネントまとめ
+
 コンポーネントの基本
 
 1. コンポーネントとは関数のようなもの
 1. コンポーネントは状態を持つ
-1. コンポーネントの2大関心事はstateとprops
-1. stateの更新は即時ではない
+1. コンポーネントの 2 大関心事は state と props
+1. state の更新は即時ではない
 1. コンポーネントは純粋に保ちできるだけ副作用は持たせない
 
 ---
 
 # Learn More
 
-- [Reactのドキュメント](https://beta.reactjs.org/)
-- [Mantineのドキュメント](https://mantine.dev/)
-- [Tailwind CSSのドキュメント](https://tailwindcss.com/)
-- [Viteのドキュメント](https://ja.vitejs.dev/)
-- [useEffect完全ガイド](https://overreacted.io/ja/a-complete-guide-to-useeffect/)
-
+- [React のドキュメント](https://beta.reactjs.org/)
+- [Mantine のドキュメント](https://mantine.dev/)
+- [Tailwind CSS のドキュメント](https://tailwindcss.com/)
+- [Vite のドキュメント](https://ja.vitejs.dev/)
+- [useEffect 完全ガイド](https://overreacted.io/ja/a-complete-guide-to-useeffect/)
