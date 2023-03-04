@@ -4,8 +4,8 @@ theme: seriph
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://source.unsplash.com/collection/94734566/1920x1080
-titleTemplate: "React研修資料 - ⓪"
-exportFilename: "React研修資料 - ⓪"
+titleTemplate: "React研修資料 - ③"
+exportFilename: "React研修資料 - ③"
 # apply any windi css classes to the current slide
 class: "text-center"
 # https://sli.dev/custom/highlighters.html
@@ -19,7 +19,7 @@ drawings:
 css: unocss
 ---
 
-# React 研修資料 ⓪
+# React 研修資料 ③
 
 <div class="pt-12">
   <span  class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
@@ -29,89 +29,83 @@ css: unocss
 
 ---
 
-# 環境構築 ~ TypeScript 編 ~
+# 目次
+
+1. Next.js とは
+1. Next.js ハンズオン（環境構築）
+1. Next.js の特徴
+1. SSR,SSG,ISR とは
+1. Next.js と HeadlessCMS でブログを作成する
+
+---
+
+# 1.1 Next.js とは
 
 <div>
-今後の研修は全てTypeScriptを使用して行なっていきます。
 
-基本的な TypeScript の研修は<a href="https://drive.google.com/file/d/14XcWt4SamRaUts4stDpYms41eVzpgmqe/view" target="_blank">こちら</a>の資料を使用します。
+[この資料](https://speakerdeck.com/recruitengineers/nextjs-2022?slide=27)で進めます
+<br />
+<br />
+
+みる内容
+
+1. Next.js の特徴
+1. 3 つの両極
 
 </div>
 
 ---
 
-# Node.js をインストールする
-
-Node.js で環境構築
+# 2.1 Next.js ハンズオン（環境構築）
 
 <div>
+環境構築の手順
 
-### <a href="https://nodejs.org/ja/about/" target="_blank">Node.js</a> とは
+1. Next.js で環境構築したいディレクトリまで移動する
 
-> Node.js はスケーラブルなネットワークアプリケーションを構築するために設計された非同期型のイベント駆動の JavaScript 環境です。
-
-Node.js をインストールする
-
-1. インストーラー経由でインストールする
-
-   [公式インストーラー](https://nodejs.org/ja/download/)
-
-2. バージョンマネージャーを使用する（おすすめ）
-   1. [volta](https://volta.sh/)
-   2. [nvm](https://github.com/nvm-sh/nvm)
-
-</div>
-
----
-
-# 必要なパッケージをインストールする
-
-Node.js で環境構築
+2. terminal で下記のコマンドを実行
 
 ```shell
-$ yarn init -y
-
-$ yarn add -D typescript ts-node @types/node nodemon
-
-$ npx tsc --init
-
-$ yarn add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
-
+npx create-next-app@latest nextjs-blog --use-npm --exmaple '参考にしたいリポジトリ'
 ```
 
----
+参考 repo: https://github.com/vercel/next-learn/tree/master/basics/learn-starter
 
-# 必要なパッケージングをインストールする
-
-Node.js で環境構築
+3. 質問に答える
 
 ```shell
-$ npx eslint --init
-You can also run this command directly using 'npm init @eslint/config'.
 Need to install the following packages:
-  @eslint/create-config
+  create-next-app@13.1.6
 Ok to proceed? (y) y
-✔ How would you like to use ESLint? · To check syntax and find problems
-✔ What type of modules does your project use? · JavaScript modules (import/export)
-✔ Which framework does your project use? · None of these
-✔ Does your project use TypeScript? · Yes
-✔ Where does your code run? · browser
-✔ What format do you want your config file to be in? · JSON
-The config that you've selected requires the following dependencies:
-
-@typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest
-✔ Would you like to install them now? · Yes
-✔ Which package manager do you want to use? · yarn
-
-$ yarn add -D prettier eslint-config-prettier
-
-$ touch .prettierrc.json
-
+✔ Would you like to use TypeScript with this project? … Yes
+✔ Would you like to use ESLint with this project? … Yes
+✔ Would you like to use `src/` directory with this project? … Yes
+✔ Would you like to use experimental `app/` directory with this project? … No
+✔ What import alias would you like configured? … @/*
 ```
+
+</div>
 
 ---
 
-# 初期設定
+# 2.2
+
+---
+
+# 3.1 Next.js の特徴
+
+<div>
+
+1. ファイルシステムベースのルーティング
+1. リンク遷移
+1. 画像最適化
+1. meta 情報
+1. CSS Modules
+1. SG(SSG)と SSR
+1. getStaticProps と getServerSideProps
+1. dynamic routes
+
+</div>
 
 Node.js で環境構築
 
